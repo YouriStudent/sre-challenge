@@ -12,6 +12,8 @@ Your goal is to deploy the included Python application directly in a local Kuber
 contain some bugs and vulnerabilities.
 
 You can use to following command to start the application docker is required to run it:
+You're allowed to modify the included application as you see fit.
+
 
 ```bash
 # Copy the template.env and rename it .env
@@ -24,8 +26,6 @@ docker compose up
 ```
 
 Test the application by opening [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
-
-You're allowed to modify the included application as you see fit.
 
 ## Objectives
 
@@ -69,6 +69,20 @@ of tools, feel free to use them!
   machines.
 - [MiniKube](https://minikube.sigs.k8s.io/docs/): in general Kubernetes requires a lot of resources, MiniKube helps you
   setting up a local cluster on your workstation.
+
+## Challenge #1: Deploy the app on a traditional VM.
+
+To spinup the machine you need to install the following programs on your local machine:
+- [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+- [Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
+
+The following plugin needs to be installed by running the command:
+
+`vagrant plugin install vagrant-env`
+
+Start the VM by running `vagrant up`
+
+Now you are all set browse the application like you would normally, using the following url: http://localhost:5000
 
 ## Get Involved
 
