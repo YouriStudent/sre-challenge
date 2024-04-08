@@ -11,22 +11,6 @@ complex cloud environments, this challenge offers platform to demonstrate your e
 Your goal is to deploy the included Python application directly in a local Kubernetes cluster. The application may
 contain some bugs and vulnerabilities.
 
-You can use to following command to start the application docker is required to run it:
-You're allowed to modify the included application as you see fit.
-
-
-```bash
-# Copy the template.env and rename it .env
-cp template.env .env
-
-# Make sure to edit the .env files with custom values depending on your preferences
-
-# Start the application
-docker compose up
-```
-
-Test the application by opening [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
-
 ## Objectives
 
 In this challenge, you'll navigate through a series of objectives designed to assess your proficiency as an SRE. Each
@@ -73,12 +57,15 @@ of tools, feel free to use them!
 ## Challenge #1: Deploy the app on a traditional VM.
 
 To spinup the machine you need to install the following programs on your local machine:
+
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 - [Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant)
 
 The following plugin needs to be installed by running the command:
 
 `vagrant plugin install vagrant-env`
+
+>Before starting the VM you first need te create a `.env` file based on the `template.env`
 
 Start the VM by running `vagrant up`
 
@@ -87,12 +74,21 @@ Now you are all set browse the application like you would normally, using the fo
 ## Challenge #2: Look into the application code and make adjustments that you think are necessary.
 
 The following things are improved to make the app more secure:
+
 - The passwords and other configs are moved to an environment variable.
 - There is a Captcha added to the login.
 - Added CSRF tokens to the login.
 - The select query to select a user from the database has been optimized.
 - Sensitive values like passwords are removed from the application output.
 - Made sure that the session cookies are not readable by JS.
+
+## Challenge #3: Deploy the app on a Kubernetes environment.
+
+>Before starting the Docker container you first need te create a `.env` file based on the `template.env`
+> 
+Due to the lack of knowledge and time (because of school) I have only managed to create the Docker containers needed for
+the kubernetes cluster. To simply start the Docker container you can use `docker compose up` this will start the
+application at http://localhost:5600.
 
 ## Get Involved
 
