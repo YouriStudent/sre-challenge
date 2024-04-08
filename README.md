@@ -54,6 +54,8 @@ of tools, feel free to use them!
 - [MiniKube](https://minikube.sigs.k8s.io/docs/): in general Kubernetes requires a lot of resources, MiniKube helps you
   setting up a local cluster on your workstation.
 
+> The testing credentials are still admin/supersecret
+
 ## Challenge #1: Deploy the app on a traditional VM.
 
 To spinup the machine you need to install the following programs on your local machine:
@@ -81,6 +83,7 @@ The following things are improved to make the app more secure:
 - The select query to select a user from the database has been optimized.
 - Sensitive values like passwords are removed from the application output.
 - Made sure that the session cookies are not readable by JS.
+- Hash and salt the passwords inside the database.
 
 ## Challenge #3: Deploy the app on a Kubernetes environment.
 

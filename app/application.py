@@ -2,6 +2,7 @@ import os
 import sqlite3
 import logging
 import requests
+import bcrypt
 
 from flask import Flask, session, redirect, url_for, request, render_template, abort
 from forms import LoginForm
@@ -42,7 +43,7 @@ def authenticate(username, password):
         app.logger.warning(f"the user '{username}' failed to log in")
         abort(401)
 
-    if users[0]["password"] == password:
+    if bcrypt.checkpw(password.encode('utf-8'), users[0]["password"].encode('utf-8')):
         app.logger.info(f"the user '{username}' logged in successfully")
         session["username"] = username
         return True
@@ -58,10 +59,11 @@ def validate_captcha(remote_ip=None, captcha_response=None):
         "remoteip": remote_ip or request.environ.get('REMOTE_ADDR')
     })
     if res.status_code != 200:
-        return False
+        abort(504)
     if res.json().get("success"):
         return True
-    return False
+    # When the user fails to complete the captcha tell it: I'm a teapot :)
+    abort(418)
 
 
 @app.route("/")
