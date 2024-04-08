@@ -84,6 +84,16 @@ Start the VM by running `vagrant up`
 
 Now you are all set browse the application like you would normally, using the following url: http://localhost:5000
 
+## Challenge #2: Look into the application code and make adjustments that you think are necessary.
+
+The following things are improved to make the app more secure:
+- The passwords and other configs are moved to an environment variable.
+- There is a Captcha added to the login.
+- Added CSRF tokens to the login.
+- The select query to select a user from the database has been optimized.
+- Sensitive values like passwords are removed from the application output.
+- Made sure that the session cookies are not readable by JS.
+
 ## Get Involved
 
 [Explore open jobs at Warpnet](https://warpnet.nl/jobs/) or take a look at
